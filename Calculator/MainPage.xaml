@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Calculator.ViewModels"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:DataType="viewmodels:MainPageViewModel"
+             x:Class="Calculator.MainPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#17181A">
+      <ContentPage.Behaviors>
+    <mct:StatusBarBehavior StatusBarColor="#17181A" />
+  </ContentPage.Behaviors>
+
+    <StackLayout>
+        <Frame HeightRequest="210"
+               BackgroundColor="#17181A"
+               BorderColor="#17181A">
+            <StackLayout>
+                <Label Text="{Binding TopNumLabel}"
+                       TextColor="#818181"
+                       Margin="0, 60, 15, 0"
+                       FontSize="30"
+                       LineBreakMode="HeadTruncation"
+                       HorizontalOptions="End"/>
+                
+
+                <Label Text="{Binding ResultLabel}"
+                       TextColor="#FFFFFF"
+                       Margin="0, 3, 15, 0"
+                       FontSize="50"
+                       HorizontalOptions="End"
+                       VerticalOptions="EndAndExpand"/>
+
+            </StackLayout>
+
+        </Frame>
+
+        <Grid ColumnSpacing="8"
+              Margin="34, 0, 34, 0"
+              RowSpacing="5"
+              RowDefinitions="*, *, *, *, *, *"
+              ColumnDefinitions="*, *, *, *">
+
+            <Button Style="{StaticResource TopButtons}"
+                    Command="{Binding NumAndOperationButtonsCommand}"
+                    CommandParameter="("
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="0, 10, 0, 0"
+                    FontAttributes="Bold"
+                    Text="("/>
+
+            <Button Style="{StaticResource TopButtons}"
+                    Command="{Binding NumAndOperationButtonsCommand}"
+                    CommandParameter=")"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="0, 10, 0, 0"
+                    FontAttributes="Bold"
+                    Text=")"/>
+
+            <Button Style="{StaticResource TopButtons}"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Margin="0, 10, 0, 0"/>
+
+            <Button Style="{StaticResource TopButtons}"
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Margin="0, 10, 0, 0"/>
+
+            <Button Command="{Binding ClearTopLabelCommand}"
+                    Padding="4, 6, 4, 6"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BackgroundColor="#616161"
+                    Text="C"
+                    FontSize="24"
+                    TextColor="#a5a5a5"/>
+
+            <Button Command="{Binding DeleteButtonCommand}"
+                    ImageSource="delbut.png"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BackgroundColor="#616161"
+                    TextColor="#3F497F"/>
+
+            <Button Style="{StaticResource OtherButton}"
+                    CommandParameter="/"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    BackgroundColor="#005DB2"
+                    TextColor="#339DFF"
+                    FontSize="32"
+                    ImageSource="devid.png"/>
+
+            <Button Style="{StaticResource OtherButton}"
+                    CommandParameter="*"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    BackgroundColor="#005DB2"
+                    TextColor="#339DFF"
+                    FontSize="32"
+                    ImageSource="star.png"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    CommandParameter="7"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="7"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    CommandParameter="8"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="8"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    CommandParameter="9"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Text="9"/>
+
+            <Button Style="{StaticResource OtherButton}"
+                    CommandParameter="-"
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    BackgroundColor="#005DB2"
+                    TextColor="#339DFF"
+                    Text="-"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    CommandParameter="4"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Text="4"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    CommandParameter="5"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Text="5"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    CommandParameter="6"
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Text="6"/>
+
+            <Button Style="{StaticResource OtherButton}"
+                    CommandParameter="+"
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Grid.RowSpan="2"
+                    Margin="0, 10, 0, 0"
+                    HeightRequest="98"
+                    VerticalOptions="Start"
+                    BackgroundColor="#005DB2"
+                    TextColor="#339DFF"
+                    Text="+"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    CommandParameter="1"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Text="1"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    CommandParameter="2"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Text="2"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    CommandParameter="3"
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    Text="3"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    WidthRequest="152"
+                    Margin="0, 20, 0, 0"
+                    Text="0"
+                    FontSize="30"/>
+
+            <Button Style="{StaticResource NumButton}"
+                    CommandParameter="."
+                    Grid.Row="5"
+                    Grid.Column="2"
+                    Margin="0, 20, 0, 0"
+                    ImageSource="dot.png"/>
+
+            <Button Command="{Binding CalculateCommand}"
+                    Grid.Row="5"
+                    Grid.Column="3"
+                    Text="="
+                    HeightRequest="98"
+                    VerticalOptions="EndAndExpand"
+                    FontSize="32"
+                    BackgroundColor="#1991FF"
+                    TextColor="#B2DAFF"/>
+
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>
+
